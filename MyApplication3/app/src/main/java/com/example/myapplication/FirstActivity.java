@@ -22,10 +22,10 @@ public class FirstActivity extends AppCompatActivity {
                  *  函数: makeTest() 创建一个Toast对象
                  *  参数1：Toast要求的上下文
                  *  参数2： 显示文本的内容
-                 *  参数3：显示的时常
+                 *  参数3：显示的时常,有2两个内置参数选择，Toast.LENGTH_SHORT和Toast.LENGTH_LONG.
                  */
                 Toast.makeText(FirstActivity.this,"you clicked Button 1",
-                Toast.LENGTH_SHORT).show();
+                Toast.LENGTH_LONG).show();
             }
         });
     }
