@@ -27,8 +27,9 @@ public class FirstActivity extends AppCompatActivity {
                  *  参数2： 显示文本的内容
                  *  参数3：显示的时常,有2两个内置参数选择，Toast.LENGTH_SHORT和Toast.LENGTH_LONG.
                  */
-                Toast.makeText(FirstActivity.this,"you clicked Button 1",
-                Toast.LENGTH_LONG).show();
+              //  Toast.makeText(FirstActivity.this,"you clicked Button 1",
+              //    Toast.LENGTH_LONG).show();
+                finish();//点击一下按钮，当前的活动就被成功销毁
             }
         });
     }
