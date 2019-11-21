@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +20,7 @@ public class FirstActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
         Button button1 = (Button) findViewById(R.id.button_1); //获取布局文件中定义的元素
+
         button1.setOnClickListener(new View.OnClickListener() {   //按钮注册一个监听器
             @Override
             public void onClick(View v) {      // 点击按钮时，就会执行监听器onClick方法
@@ -73,8 +75,19 @@ public class FirstActivity extends AppCompatActivity {
              * 首先，指定了Intent的action是Intent.ACTION_DIAL,这是
              * Android 系统内置的动作。然后在data部分指定了协议tel.号码是10086.
              */
-            Intent intent = new Intent(Intent.ACTION_DIAL);
-            intent.setData(Uri.parse("tel:10086"));
+//            Intent intent = new Intent(Intent.ACTION_DIAL);
+//            intent.setData(Uri.parse("tel:10086"));
+//            startActivity(intent);
+
+/*************************2.3.4 向下一个活动传递数据***************************/
+            String data = "Hello SecondActivity";
+            Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
+                /**
+                 * 方法：putExtra()
+                 * 参数name:键
+                 * 参数value: 传递的数据
+                 */
+            intent.putExtra("extra_data",data);
             startActivity(intent);
             }
         });
