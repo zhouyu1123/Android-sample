@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -52,9 +53,28 @@ public class FirstActivity extends AppCompatActivity {
                 //startActivity(intent);
 
 /*************************2.3.2 隐示Intent***************************/
-            Intent intent = new Intent("com.example.myapplication.ACTION_START");
-            //每个Intent中，只能指定一个action,但是可以指定多个category.
-           intent.addCategory("com.example.myapplication.MY_CATEGORY");
+//            Intent intent = new Intent("com.example.myapplication.ACTION_START");
+//            //每个Intent中，只能指定一个action,但是可以指定多个category.
+//           intent.addCategory("com.example.myapplication.MY_CATEGORY");
+//            startActivity(intent);
+/*************************2.3.3 更多隐式Intent用法***************************/
+            /**
+             * Intent.ACTION_VIEW 这是Andriod系统内置的动作,其常量值为，
+             * android.intent.action.VIEW。然后，通过Uri.pares()方法，
+             * 将一个网址字符串解析成一个Uri对象，再调用Intent的setData()方法将
+             * 这个Uri对象传递进去。
+             */
+            //打开一个网页
+//            Intent intent = new Intent(Intent.ACTION_VIEW);
+//            intent.setData(Uri.parse("http:www.baidu.com"));
+//            startActivity(intent);
+            /**
+             * tel表示拨打电话，调用系统的拨号界面
+             * 首先，指定了Intent的action是Intent.ACTION_DIAL,这是
+             * Android 系统内置的动作。然后在data部分指定了协议tel.号码是10086.
+             */
+            Intent intent = new Intent(Intent.ACTION_DIAL);
+            intent.setData(Uri.parse("tel:10086"));
             startActivity(intent);
             }
         });

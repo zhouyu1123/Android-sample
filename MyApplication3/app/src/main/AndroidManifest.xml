@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapplication">
 
     <dist:module dist:instant="true" />
@@ -13,6 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- ThirdActivity 注册才能生效 -->
+        <activity
+            android:name=".ThirdActivity">
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="http"/>  <!--指定了数据的协议 -->
+            </intent-filter>
+        </activity>
+
         <!-- FirstActivity 注册才能生效 -->
         <activity android:name=".FirstActivity">
             <intent-filter> <!-- 配置主活动的方法 -->
@@ -20,21 +31,20 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-        </activity>
-
-        <!-- 注册SecondActivity -->
+        </activity> <!-- 注册SecondActivity -->
         <activity android:name=".SecondActivity">
-         <intent-filter>
-            <!-- 指明当前的活动可以响应com.example.myapplication.ACTION_START这个action-->
-             <action android:name="com.example.myapplication.ACTION_START"/>
-             <!-- 包含了一些附加信息，更精确地指明当前活动能够响应的Intent中指定的action 和
-             category时，这个活动才能响应该Intent.-->
-             <category android:name="android.intent.category.DEFAULT"/>
-             <category android:name="com.example.myapplication.MY_CATEGORY"/>
-         </intent-filter>
-        </activity>
+            <intent-filter>
 
+                <!-- 指明当前的活动可以响应com.example.myapplication.ACTION_START这个action -->
+                <action android:name="com.example.myapplication.ACTION_START" />
+                <!--
+             包含了一些附加信息，更精确地指明当前活动能够响应的Intent中指定的action 和
+             category时，这个活动才能响应该Intent.
+                -->
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.example.myapplication.MY_CATEGORY" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
