@@ -12,15 +12,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SecondActivity"></activity>
-        <activity android:name=".FirstActivity"> <!-- FirstActivity 注册才能生效 -->
+
+        <!-- FirstActivity 注册才能生效 -->
+        <activity android:name=".FirstActivity">
             <intent-filter> <!-- 配置主活动的方法 -->
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            >
+
         </activity>
+
+        <!-- 注册SecondActivity -->
+        <activity android:name=".SecondActivity">
+         <intent-filter>
+            <!-- 指明当前的活动可以响应com.example.myapplication.ACTION_START这个action-->
+             <action android:name="com.example.myapplication.ACTION_START"/>
+             <!-- 包含了一些附加信息，更精确地指明当前活动能够响应的Intent中指定的action 和
+             category时，这个活动才能响应该Intent.-->
+             <category android:name="android.intent.category.DEFAULT"/>
+             <category android:name="com.example.myapplication.MY_CATEGORY"/>
+         </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
