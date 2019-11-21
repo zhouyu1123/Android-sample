@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,7 +30,22 @@ public class FirstActivity extends AppCompatActivity {
                  */
               //  Toast.makeText(FirstActivity.this,"you clicked Button 1",
               //    Toast.LENGTH_LONG).show();
-                finish();//点击一下按钮，当前的活动就被成功销毁
+              //  finish();//点击一下按钮，当前的活动就被成功销毁
+
+                /**
+                 * 函数：Intent(Context packageContext,Class<?> cls)
+                 * 参数Context: 要求提供一个启动活动的上下文
+                 * 参数Class： 则是指定我们想要启动的目标活动
+                 */
+                Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
+
+                /**
+                 * 类：Activity
+                 * 方法：startActivity()
+                 * 该方法功能： 专门用于启动活动的，它接收一个Intent参数，
+                 * 这里我们将构建好的Intent传入startActivity()方法就可以启动目标活动
+                 */
+                startActivity(intent);
             }
         });
     }
