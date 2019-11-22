@@ -80,15 +80,25 @@ public class FirstActivity extends AppCompatActivity {
 //            startActivity(intent);
 
 /*************************2.3.4 向下一个活动传递数据***************************/
-            String data = "Hello SecondActivity";
+//            String data = "Hello SecondActivity";
+//            Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
+//                /**
+//                 * 方法：putExtra()
+//                 * 参数name:键
+//                 * 参数value: 传递的数据
+//                 */
+//            intent.putExtra("extra_data",data);
+//            startActivity(intent);
+
+/*************************2.3.5 返回数据给上一个活动***************************/
+            /**
+             * 方法：startActivityForResult()
+             * 参数1:Intent
+             * 参数2：请求码，用于在之后的回调中判断数据的来源
+             */
             Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
-                /**
-                 * 方法：putExtra()
-                 * 参数name:键
-                 * 参数value: 传递的数据
-                 */
-            intent.putExtra("extra_data",data);
-            startActivity(intent);
+            startActivityForResult(intent,1); //请求码，是一个唯一的值，这里传入1.
+
             }
         });
     }
@@ -111,7 +121,6 @@ public class FirstActivity extends AppCompatActivity {
      * 函数： onOptionsItemSelected()
      * 功能： 菜单响应事件
      */
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){ //通过调用getItemID来判断点击的是哪个菜单
@@ -124,5 +133,31 @@ public class FirstActivity extends AppCompatActivity {
                 default:
         }
         return true;
+    }
+
+    /**
+     *  由于使用startActivityForResult()方法来启动的SecondActivity,在SecondActivity销毁
+     *  之后会回调一个活动的OnActivityResult()方法，因此需要重写这个方法得到返回的数据
+     *
+     *  参数requestCode：即我们启动活动时传入的请求码
+     *  参数resultCode: 即我们在返回数据时，传入的处理结果
+     *  参数data: 即携带着返回数据的Intent
+     */
+    @Override
+    protected void onActivityResult(int requestCode,int resultCode,Intent data){
+
+        switch (requestCode){
+
+            case 1:
+
+                if (resultCode == RESULT_OK){
+                    Log.d("1123","zhouyu");
+                    String returnedData = data.getStringExtra("data_return");
+                    Log.d("FirstActivity",returnedData);
+
+                }
+                break;
+            default:
+        }
     }
 }
