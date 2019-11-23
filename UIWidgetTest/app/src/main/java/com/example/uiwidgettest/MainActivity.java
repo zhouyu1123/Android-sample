@@ -1,7 +1,9 @@
 package com.example.uiwidgettest;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +44,25 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                /* 3.2.6 AlerDialog */
+                AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                dialog.setTitle("This is Dialog");
+                dialog.setMessage("Something important.");
+                dialog.setCancelable(false);
+                dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        imageView.setImageResource(R.drawable.imag1);
+                    }
+                });
+                dialog.setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                dialog.show();
 
                 /* 3.2.5 ProgressBar */
 //                if (progressBar.getVisibility() == View.GONE){
