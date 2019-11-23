@@ -30,60 +30,32 @@ public class FirstActivity extends BaseActivity {  /* 2.6.1 BaseActivity 替换 
         button1.setOnClickListener(new View.OnClickListener() {   //按钮注册一个监听器
             @Override
             public void onClick(View v) {      // 点击按钮时，就会执行监听器onClick方法
-                /**
-                 *  函数: makeTest()
-                 *  功能：创建一个Toast对象
-                 *  参数1：Toast要求的上下文
-                 *  参数2： 显示文本的内容
-                 *  参数3：显示的时常,有2两个内置参数选择，Toast.LENGTH_SHORT和Toast.LENGTH_LONG.
-                 */
-              //  Toast.makeText(FirstActivity.this,"you clicked Button 1",
-              //    Toast.LENGTH_LONG).show();
 
-/*************************2.2.6  销毁活动***************************/
 
-              //  finish();//点击一下按钮，当前的活动就被成功销毁
+/*************************2.6.3  启动活动的最佳写法***************************/
+SecondActivity.actionStart(FirstActivity.this,"data1","data2");
 
-/*************************2.3.1 显示Intent***************************/
-                /**
-                 * 函数：Intent(Context packageContext,Class<?> cls)
-                 * 参数Context: 要求提供一个启动活动的上下文
-                 * 参数Class： 则是指定我们想要启动的目标活动
-                 */
-               // Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
 
-                /**
-                 * 类：Activity
-                 * 方法：startActivity()
-                 * 该方法功能： 专门用于启动活动的，它接收一个Intent参数，
-                 * 这里我们将构建好的Intent传入startActivity()方法就可以启动目标活动
-                 */
-                //startActivity(intent);
-
-/*************************2.3.2 隐示Intent***************************/
-//            Intent intent = new Intent("com.example.myapplication.ACTION_START");
-//            //每个Intent中，只能指定一个action,但是可以指定多个category.
-//           intent.addCategory("com.example.myapplication.MY_CATEGORY");
+///*************************2.5.2 singleTop ***************************/
+//            Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
 //            startActivity(intent);
-/*************************2.3.3 更多隐式Intent用法***************************/
-            /**
-             * Intent.ACTION_VIEW 这是Andriod系统内置的动作,其常量值为，
-             * android.intent.action.VIEW。然后，通过Uri.pares()方法，
-             * 将一个网址字符串解析成一个Uri对象，再调用Intent的setData()方法将
-             * 这个Uri对象传递进去。
-             */
-            //打开一个网页
-//            Intent intent = new Intent(Intent.ACTION_VIEW);
-//            intent.setData(Uri.parse("http:www.baidu.com"));
+
+
+/*************************2.5.1-1 standard ***************************/
+//            Intent intent = new Intent(FirstActivity.this,FirstActivity.class);
 //            startActivity(intent);
-            /**
-             * tel表示拨打电话，调用系统的拨号界面
-             * 首先，指定了Intent的action是Intent.ACTION_DIAL,这是
-             * Android 系统内置的动作。然后在data部分指定了协议tel.号码是10086.
-             */
-//            Intent intent = new Intent(Intent.ACTION_DIAL);
-//            intent.setData(Uri.parse("tel:10086"));
-//            startActivity(intent);
+
+
+/*************************2.3.5 返回数据给上一个活动***************************/
+                /**
+                 * 方法：startActivityForResult()
+                 * 参数1:Intent
+                 * 参数2：请求码，用于在之后的回调中判断数据的来源
+                 */
+//            Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
+//            startActivityForResult(intent,1); //请求码，是一个唯一的值，这里传入1.
+//
+
 
 /*************************2.3.4 向下一个活动传递数据***************************/
 //            String data = "Hello SecondActivity";
@@ -97,22 +69,67 @@ public class FirstActivity extends BaseActivity {  /* 2.6.1 BaseActivity 替换 
 //            startActivity(intent);
 
 
-/*************************2.3.5 返回数据给上一个活动***************************/
-            /**
-             * 方法：startActivityForResult()
-             * 参数1:Intent
-             * 参数2：请求码，用于在之后的回调中判断数据的来源
-             */
-//            Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
-//            startActivityForResult(intent,1); //请求码，是一个唯一的值，这里传入1.
-//
-/*************************2.5.1-1 standard ***************************/
-//            Intent intent = new Intent(FirstActivity.this,FirstActivity.class);
+/*************************2.3.3 更多隐式Intent用法***************************/
+                /**
+                 * Intent.ACTION_VIEW 这是Andriod系统内置的动作,其常量值为，
+                 * android.intent.action.VIEW。然后，通过Uri.pares()方法，
+                 * 将一个网址字符串解析成一个Uri对象，再调用Intent的setData()方法将
+                 * 这个Uri对象传递进去。
+                 */
+                //打开一个网页
+//            Intent intent = new Intent(Intent.ACTION_VIEW);
+//            intent.setData(Uri.parse("http:www.baidu.com"));
+//            startActivity(intent);
+                /**
+                 * tel表示拨打电话，调用系统的拨号界面
+                 * 首先，指定了Intent的action是Intent.ACTION_DIAL,这是
+                 * Android 系统内置的动作。然后在data部分指定了协议tel.号码是10086.
+                 */
+//            Intent intent = new Intent(Intent.ACTION_DIAL);
+//            intent.setData(Uri.parse("tel:10086"));
 //            startActivity(intent);
 
-/*************************2.5.2 singleTop ***************************/
-            Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
-            startActivity(intent);
+
+/*************************2.3.2 隐示Intent***************************/
+//            Intent intent = new Intent("com.example.myapplication.ACTION_START");
+//            //每个Intent中，只能指定一个action,但是可以指定多个category.
+//           intent.addCategory("com.example.myapplication.MY_CATEGORY");
+//            startActivity(intent);
+
+
+/*************************2.3.1 显示Intent***************************/
+                /**
+                 * 函数：Intent(Context packageContext,Class<?> cls)
+                 * 参数Context: 要求提供一个启动活动的上下文
+                 * 参数Class： 则是指定我们想要启动的目标活动
+                 */
+                // Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
+
+                /**
+                 * 类：Activity
+                 * 方法：startActivity()
+                 * 该方法功能： 专门用于启动活动的，它接收一个Intent参数，
+                 * 这里我们将构建好的Intent传入startActivity()方法就可以启动目标活动
+                 */
+                //startActivity(intent);
+
+
+/*************************2.2.6  销毁活动***************************/
+
+              //  finish();//点击一下按钮，当前的活动就被成功销毁
+
+
+/*************************2.2.4  在活动中使用Toast makeTest***************************/
+                /**
+                 *  函数: makeTest()
+                 *  功能：创建一个Toast对象
+                 *  参数1：Toast要求的上下文
+                 *  参数2： 显示文本的内容
+                 *  参数3：显示的时常,有2两个内置参数选择，Toast.LENGTH_SHORT和Toast.LENGTH_LONG.
+                 */
+                //  Toast.makeText(FirstActivity.this,"you clicked Button 1",
+                //    Toast.LENGTH_LONG).show();
+
 
             }
         });

@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +10,14 @@ import android.view.View;
 import android.widget.Button;
 
 public class SecondActivity extends BaseActivity {   /* 2.6.1 BaseActivity 替换 AppCompatActivity 知晓当前是在哪一个活动 */
+
+    /*  2.6.3 启动活动的最佳写法 */
+    public  static void actionStart (Context context, String data1,String data2){
+        Intent intent = new Intent(context,SecondActivity.class);
+        intent.putExtra("param1",data1);
+        intent.putExtra("param2",data2);
+        context.startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
