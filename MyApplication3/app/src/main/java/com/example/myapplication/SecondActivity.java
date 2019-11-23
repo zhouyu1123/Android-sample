@@ -27,16 +27,21 @@ public class SecondActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.putExtra("data_return","Hello FirstActivity"); //把需要传递的数据存放在Intent
 
-                /**
-                 *  方法：setResult() 用于向上一个活动返回数据
-                 *  参数1：用于向上一个活动返回处理结果，一般只使用RESULT_OK或RESULT_CANCELED
-                 *  参数2：把带有数据的Intent传递回去
-                 */
-                setResult(RESULT_OK,intent);
-                finish(); //销毁当前的活动
+//                Intent intent = new Intent();
+//                intent.putExtra("data_return","Hello FirstActivity"); //把需要传递的数据存放在Intent
+//
+//                /**
+//                 *  方法：setResult() 用于向上一个活动返回数据
+//                 *  参数1：用于向上一个活动返回处理结果，一般只使用RESULT_OK或RESULT_CANCELED
+//                 *  参数2：把带有数据的Intent传递回去
+//                 */
+//                setResult(RESULT_OK,intent);
+//                finish(); //销毁当前的活动
+
+/*************************2.5.2 singleTop ***************************/
+                Intent intent = new Intent(SecondActivity.this,FirstActivity.class);
+                startActivity(intent);
             }
         });
     }

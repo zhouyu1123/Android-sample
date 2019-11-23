@@ -18,6 +18,7 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        Log.d("FirstActivity",this.toString());
         setContentView(R.layout.first_layout);
         Button button1 = (Button) findViewById(R.id.button_1); //获取布局文件中定义的元素
 
@@ -90,14 +91,23 @@ public class FirstActivity extends AppCompatActivity {
 //            intent.putExtra("extra_data",data);
 //            startActivity(intent);
 
+
 /*************************2.3.5 返回数据给上一个活动***************************/
             /**
              * 方法：startActivityForResult()
              * 参数1:Intent
              * 参数2：请求码，用于在之后的回调中判断数据的来源
              */
+//            Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
+//            startActivityForResult(intent,1); //请求码，是一个唯一的值，这里传入1.
+//
+/*************************2.5.1-1 standard ***************************/
+//            Intent intent = new Intent(FirstActivity.this,FirstActivity.class);
+//            startActivity(intent);
+
+/*************************2.5.2 singleTop ***************************/
             Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
-            startActivityForResult(intent,1); //请求码，是一个唯一的值，这里传入1.
+            startActivity(intent);
 
             }
         });
