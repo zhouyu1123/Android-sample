@@ -43,6 +43,16 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG , "onClick");
             }
         });
+
+
+        Button button = (Button)findViewById(R.id.testbg);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,DestroyReturned.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -99,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
          *  每个方法有两个参数：
          *  参数1：键，用于后面Bundle中取值
          *  参数2：真正需要保存的内容
+         *
          */
         outState.putString("data_key",tempData);
         Log.d(TAG ,"putString");

@@ -10,13 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-<!--    程序崩溃    android:theme="@android:style/Theme.Dialog"  &lt;!&ndash; 程序崩溃，让DialogActivity使用对话框主题 &ndash;&gt;-->
-<!--   正常     android:theme="@style/Theme.AppCompat.Dialog">  &lt;!&ndash; 让DialogActivity使用对话框主题 &ndash;&gt;-->
-        <activity android:name=".DialogActivity"
-           android:theme="@style/Theme.AppCompat.Dialog">  <!-- 让DialogActivity使用对话框主题 -->
+        <activity
+            android:name=".DestroyReturned"
+            android:label="这是一个碧哥的销魂测试。">
         </activity>
 
-        <activity android:name=".NormalActivity" > </activity>
+        <!-- 程序崩溃    android:theme="@android:style/Theme.Dialog"  &lt;!&ndash; 程序崩溃，让DialogActivity使用对话框主题 &ndash;&gt; -->
+        <!-- 正常     android:theme="@style/Theme.AppCompat.Dialog">  &lt;!&ndash; 让DialogActivity使用对话框主题 &ndash;&gt; -->
+        <activity
+            android:name=".DialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog"> <!-- 让DialogActivity使用对话框主题 -->
+        </activity>
+        <activity android:name=".NormalActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

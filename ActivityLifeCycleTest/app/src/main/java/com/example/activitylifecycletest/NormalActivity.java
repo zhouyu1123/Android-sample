@@ -3,6 +3,8 @@ package com.example.activitylifecycletest;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 public class NormalActivity extends AppCompatActivity {
 
@@ -11,4 +13,5 @@ public class NormalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.normal_layout);
     }
+
 }
