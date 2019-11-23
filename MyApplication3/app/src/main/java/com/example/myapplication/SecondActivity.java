@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends BaseActivity {   /* 2.6.1 BaseActivity 替换 AppCompatActivity 知晓当前是在哪一个活动 */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
