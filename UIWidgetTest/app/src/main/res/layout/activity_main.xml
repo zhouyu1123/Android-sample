@@ -47,4 +47,14 @@
     </ImageView>
 
 
+    <!-- 3.2.5 ProgressBar -->
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id = "@+id/progress_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100">
+    </ProgressBar>
+
+
 </LinearLayout>

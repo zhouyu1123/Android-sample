@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,22 +18,40 @@ public class MainActivity extends AppCompatActivity {
     /* 3.2.4 ImageView */
     private ImageView imageView;
 
+    /* 3.2.5 ProgressBar */
+    private ProgressBar progressBar;
+
      String TAG = "mainActivityTag";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /* 3.2.3  Edittext */
-        editText = (EditText) findViewById(R.id.edit_text);
+        /* 3.2.5 ProgressBar */
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
 
         /* 3.2.4 ImageView */
         imageView = (ImageView) findViewById(R.id.image_view);
+
+
+        /* 3.2.3  Edittext */
+        editText = (EditText) findViewById(R.id.edit_text);
+
 
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                /* 3.2.5 ProgressBar */
+//                if (progressBar.getVisibility() == View.GONE){
+//                    progressBar.setVisibility(View.VISIBLE);
+//                } else {
+//                    progressBar.setVisibility(View.GONE);
+//                }
+                int progress = progressBar.getProgress();
+                progress = progress + 10;
+                progressBar.setProgress(progress);
 
                 /* 3.2.4 ImageView */
                 imageView.setImageResource(R.drawable.image2);
