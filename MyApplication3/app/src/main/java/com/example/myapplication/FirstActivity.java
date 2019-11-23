@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -169,5 +170,12 @@ public class FirstActivity extends AppCompatActivity {
                 break;
             default:
         }
+    }
+
+    /* 2.5.3 singleTask */
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("FirstActivity","onRestart");
     }
 }

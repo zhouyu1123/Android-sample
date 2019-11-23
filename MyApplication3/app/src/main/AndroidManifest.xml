@@ -25,7 +25,10 @@
         </activity>
 
         <!-- FirstActivity 注册才能生效 -->
-        <activity android:name=".FirstActivity">
+        <activity android:name=".FirstActivity"
+                  android:launchMode="singleTask"
+                  android:label="This is FirstActivity">  <!-- android:launchMode  android:label 2.5.3 singTask-->
+
             <intent-filter> <!-- 配置主活动的方法 -->
                 <action android:name="android.intent.action.MAIN" />
 

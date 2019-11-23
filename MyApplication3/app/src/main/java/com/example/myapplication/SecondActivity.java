@@ -45,4 +45,11 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
     }
+
+    /* 2.5.3 singleTask */
+    @Override
+    protected  void onDestroy() {
+        super.onDestroy();
+        Log.d("SecondActivity","onDestroy");
+    }
 }
