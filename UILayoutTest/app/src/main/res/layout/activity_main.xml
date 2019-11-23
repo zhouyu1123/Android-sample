@@ -4,28 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <Button
-        android:layout_width="wrap_content"
+ <!-- android:layout_width=1;代表EdiText 和 Button水平方向平分宽度 -->
+    <EditText
+        android:id = "@+id/input_message"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id = "@+id/button1"
-        android:layout_gravity="top"
-        android:text="button 1" >
+        android:layout_weight="1"
+        android:hint="Type something">
+    </EditText>
+
+    <!-- android:layout_weight="1"-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id = "@+id/send"
+        android:text="Send" >
     </Button>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id = "@+id/button2"
-        android:layout_gravity="center_vertical"
-        android:text="button 2" >
-    </Button>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id = "@+id/button3"
-        android:layout_gravity="bottom"
-        android:text="button 3" >
-    </Button>
 </LinearLayout>
