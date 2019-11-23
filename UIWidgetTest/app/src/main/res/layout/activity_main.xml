@@ -17,6 +17,7 @@
         android:textColor="#00ff00"
         android:text="This is TextView !" />
 
+
     <!-- textAllCaps 取消自动按键文字自动转变大写 -->
     <Button
         android:layout_width="match_parent"
@@ -25,5 +26,17 @@
         android:textAllCaps="false"
         android:text="button">
     </Button>
+
+
+    <!-- hint 输入提示框 -->
+    <!-- maxLines 最多2行，超过往上滚动 -->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edit_text"
+        android:hint="Type something here"
+        android:maxLines="2">
+    </EditText>
+
 
 </LinearLayout>
