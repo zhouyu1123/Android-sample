@@ -15,6 +15,9 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_layout);
 
+        /* 2.5.4 singInstance 共享实例 */
+        Log.d("SecondActivity","Task id is" + getTaskId()); //打印当前SecondActivity返回栈的ID
+
 //        /* 取出数据，并打印 */
 //        Intent intent = getIntent();
 //        String data = intent.getStringExtra("extra_data");
@@ -40,8 +43,13 @@ public class SecondActivity extends AppCompatActivity {
 //                finish(); //销毁当前的活动
 
 /*************************2.5.2 singleTop ***************************/
-                Intent intent = new Intent(SecondActivity.this,FirstActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(SecondActivity.this,FirstActivity.class);
+//                startActivity(intent);
+
+/*************************2.5.4 singInstance 共享实例 ***************************/
+        Intent intent = new Intent(SecondActivity.this,ThirdActivity.class);
+        startActivity(intent);
+
             }
         });
     }

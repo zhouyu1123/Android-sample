@@ -19,7 +19,11 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        Log.d("FirstActivity",this.toString());
+
+        /* 2.5.4 singInstance 共享实例 */
+//        Log.d("FirstActivity",this.toString());
+        Log.d("FirstActivity","Task id is" + getTaskId()); //打印当前FirstActivity返回栈的ID
+
         setContentView(R.layout.first_layout);
         Button button1 = (Button) findViewById(R.id.button_1); //获取布局文件中定义的元素
 

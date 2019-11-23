@@ -35,7 +35,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity> <!-- 注册SecondActivity -->
-        <activity android:name=".SecondActivity">
+        <activity android:name=".SecondActivity"
+            android:launchMode="singleInstance">  <!-- 2.5.4 singleInstance 共享活动实例 -->
             <intent-filter>
 
                 <!-- 指明当前的活动可以响应com.example.myapplication.ACTION_START这个action -->
