@@ -38,5 +38,13 @@
         android:maxLines="2">
     </EditText>
 
+    <!-- 3.2.4 ImageView -->
+    <ImageView
+        android:id = "@+id/image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/imag1">
+    </ImageView>
+
 
 </LinearLayout>

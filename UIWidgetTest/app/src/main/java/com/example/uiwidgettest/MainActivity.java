@@ -7,11 +7,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     /* 3.2.3  Edittext */
     private EditText editText;
+
+    /* 3.2.4 ImageView */
+    private ImageView imageView;
 
      String TAG = "mainActivityTag";
     @Override
@@ -22,10 +26,16 @@ public class MainActivity extends AppCompatActivity {
         /* 3.2.3  Edittext */
         editText = (EditText) findViewById(R.id.edit_text);
 
+        /* 3.2.4 ImageView */
+        imageView = (ImageView) findViewById(R.id.image_view);
+
         Button button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                /* 3.2.4 ImageView */
+                imageView.setImageResource(R.drawable.image2);
                 Log.d(TAG ,"这是一个测试按键！");
 
                 /* 3.2.3  Edittext */
